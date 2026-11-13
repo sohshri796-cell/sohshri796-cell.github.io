@@ -1,57 +1,77 @@
-# Soham — Editorial Portfolio
+# Soham — Portfolio
 
-A responsive portfolio site for GitHub Pages. Built with plain HTML, CSS, and JavaScript; no build tools or frameworks required. Optimised across mobile, tablet, and desktop viewports.
+A personal portfolio website showcasing projects, writing, and background in embedded systems, firmware, RTOS, and low-level computing.
 
-## Structure
+Built as a static site with plain **HTML, CSS, and JavaScript** — no build tools, frameworks, or package dependencies.
 
+## Features
+
+- **Responsive editorial layout** for mobile, tablet, and desktop
+- **Light/dark theme toggle** with preference saved in `localStorage` and system-theme fallback
+- **Interactive hero section** with an animated expedition/climber stage
+- **Projects section** with filterable project cards and dedicated project detail pages
+- **Writing section** for technical notes/articles
+- **Accessible navigation and UI details** (focus states, reduced-motion considerations, semantic sections)
+
+## Project structure
+
+```text
+.
+├── index.html                  # Main landing page (hero, about/context, work, contact)
+├── writing.html                # Writing/articles index
+├── projects/
+│   ├── astraritos.html         # AstraRTOS project page
+│   └── microkernel.html        # Microkernel project page
+├── writing/
+│   └── mpu-driver.html         # ARM Cortex-M MPU driver write-up
+├── style.css                   # Global styles, themes, layout, animations
+├── script.js                   # Theme toggle, interactions, filters, UI behavior
+└── README.md
 ```
-index.html              — main single page (hero with expedition simulation stage, context, work, contact)
-writing.html            — writings and technical articles (links out to project sites / blogs)
-projects/
-  astraritos.html       — AstraRTOS detail page (ongoing)
-  microkernel.html      — Microkernel detail page (ongoing)
-writing/
-  mpu-driver.html       — ARM Cortex-M MPU Driver technical write-up
-style.css               — responsive typography, high-contrast themes, and physics keyframes
-script.js               — theme switcher, climber cursor tracking physics, typing effect, project filters
-```
 
-## Preview locally
+## Getting started
 
-Open `index.html` in any web browser. Google Fonts are loaded from the web; the site still works if they are unavailable, using fallback system fonts.
+No installation is required.
 
-## Features & Customizations
+### Run locally
 
-### 1. Interactive Expedition Stage (Hero Element)
-- Replaced the old sticker with a widescreen, framed **Expedition Simulation Stage** (`.climber-stage-card`) set in a 2-column hero layout.
-- Features a detailed landscape with elevation contours, distant peaks, rugged cliff face, summit flag at 3,000m, and an articulated mountaineer.
-- The climber visibly struggles up the cliff, steps between rock ledges, and pulls his weight upward.
-- **The Slip & Recovery**: Mid-ascent, his foot slips off a loose rock ledge. Pebbles scatter, he plunges down and swings out over the void in panic with flying sweat drops and scrambling legs. His hand snaps onto an emergency ledge to arrest the fall with elastic recoil, sighs with relief, regains footing, and continues climbing to the summit flag.
-- **Real-Time Cursor Tracking**: The climber's head and eyes smoothly follow your cursor across the hero in 2D space, and his torso subtly leans toward you. The simulation never freezes on hover.
-- Includes a live altitude counter (2,450m – 3,000m) and dynamic ticker status bar.
+1. Clone or download this repository.
+2. Open `index.html` in a browser.
 
-### 2. High-Contrast Dark Mode & Restored Light Palettes
-- Restored the original warm editorial paper finish (`#f4f1e9`) with deep cobalt accents for light mode.
-- Redesigned dark mode using a warm carbon background (`#121214`) and surface cards (`#18181b`) with crisp white text (`#f5f5f7`) and vivid amber-orange accents (`#f97316`), giving an authentic engineering/terminal aesthetic without generic "slop".
+> Fonts are loaded from Google Fonts. The site will still work with fallback fonts if they are unavailable.
 
-### 3. Aligned Writing Section
-- Rebuilt `writing.html` with an editorial article card (`.writing-card`) with surgical alignment across all screen sizes.
-- No invalid nested `<a>` tags. Features the **ARM Cortex-M MPU Driver** with direct external website navigation (`target="_blank" rel="noopener noreferrer"`), a "Website ↗" badge, and clean action buttons.
+## Customization
 
-### 4. About Section & Navigation
-- The standalone about card was removed. Clicking **"about"** in the top navigation smoothly scrolls directly to the **"A LITTLE CONTEXT"** strip (`#about`) with proper scroll margins.
+Before publishing, search the project for placeholder values and replace them with your own:
 
-### 5. Ongoing Projects (AstraRTOS & Microkernel)
-- Selected work features two ongoing low-level builds: **AstraRTOS** (bare-metal RTOS for Cortex-M4) and **Microkernel** (minimal capability-based microkernel with synchronous IPC).
+- `YOUR_EMAIL@example.com` — your email address
+- `YOUR_GITHUB` — your GitHub username/profile/repo links
+- `YOUR_LINKEDIN` — your LinkedIn profile slug
 
-### 6. GitHub Pages Compatibility
-- 100% vanilla HTML, CSS, and JavaScript.
-- Zero npm dependencies, zero build steps, and zero bundlers. Simply upload to your GitHub repository and enable GitHub Pages under repository settings.
+You may also want to update:
 
-## Before publishing
+- Project descriptions and links in `index.html` and files under `projects/`
+- Writing entries and external links in `writing.html` and files under `writing/`
+- Contact/social links in `index.html`
+- Metadata (title/description/theme color) in each HTML file
 
-Search the project for `YOUR_` and replace these placeholders:
-- `YOUR_EMAIL@example.com` — email address
-- `YOUR_GITHUB` — GitHub username
-- `YOUR_LINKEDIN` — LinkedIn profile slug
-- Project and writing links pointing to your external repositories or documentation websites.
+## Deployment (GitHub Pages)
+
+1. Push this repository to GitHub.
+2. In your repository, go to **Settings → Pages**.
+3. Under **Build and deployment**, set:
+   - **Source:** Deploy from a branch
+   - **Branch:** `main` (or your default branch) and `/ (root)`
+4. Save and wait for GitHub Pages to publish the site.
+
+Your site will be available at the URL shown in the Pages settings.
+
+## Tech stack
+
+- HTML
+- CSS
+- Vanilla JavaScript
+
+## License
+
+No license file is included in this repository yet. If you plan to make the code reusable by others, consider adding a `LICENSE` file (for example, MIT).
