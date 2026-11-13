@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f4f1e9" />
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('portfolio-theme');
+        var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', theme === 'dark' ? '#121214' : '#f4f1e9');
+      } catch (error) {}
+    })();
+  </script>
+  <meta name="description" content="Soham — Electronics Engineering student exploring embedded systems, firmware, RTOS, microkernels, and low-level computing." />
+  <title>Soham — I make hardware do things.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="wordmark" href="#top" aria-label="Soham, home">Soham<span class="wordmark-dot">.</span></a>
+      <div class="nav-links">
+        <a href="#work">work <span>↘</span></a>
+        <a href="writing.html">writing <span>↘</span></a>
+        <a href="#about">about <span>↘</span></a>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <a class="availability" href="#contact"><span class="status-dot"></span> let's talk</a>
+      </div>
+    </nav>
+
+    <main id="top">
+      <!-- Replaced Hero Section -->
+      <section class="hero section-pad" id="hero-section">
+        <div class="hero-kicker"><span class="tiny-star">✳</span> ELECTRONICS ENGINEERING · VJTI, MUMBAI</div>
+
+        <div class="hero-content-grid">
+          <!-- Left Column: Typography & Action -->
+          <div class="hero-intro-col">
+            <h1>Hi, I'm<br /><span class="name-line">Soham<span class="name-period">.</span></span></h1>
+            <p class="hero-description">I like figuring out <em><span id="typed"></span><span class="typed-cursor" aria-hidden="true"></span></em></p>
+            <div class="hero-cta-row">
+              <a class="hero-cta-btn" href="#work">Explore projects <span class="btn-arrow">↓</span></a>
+              <a class="hero-cta-secondary" href="#about">About <span>↘</span></a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Mountain Expedition Simulation Stage -->
+          <div class="hero-stage-col">
+            <div class="climber-stage-card" id="climber-stage-card" aria-label="Interactive simulation of a mountain climber struggling up a cliff, slipping, recovering, and tracking your cursor.">
+              <!-- Main Interactive Viewport -->
+              <div class="stage-canvas-wrap" id="stage-canvas-wrap">
+                <svg viewBox="0 0 440 280" class="stage-svg" id="stage-svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="skyGradient" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="var(--paper)" stop-opacity="0.8" />
+                      <stop offset="100%" stop-color="var(--strip)" stop-opacity="0.9" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Sky backdrop & subtle elevation contours -->
+                  <rect width="440" height="280" fill="url(#skyGradient)" />
+                  <g class="contour-grid">
+                    <line x1="0" y1="70" x2="440" y2="70" />
+                    <line x1="0" y1="140" x2="440" y2="140" />
+                    <line x1="0" y1="210" x2="440" y2="210" />
+                  </g>
+
+                  <!-- Distant mountain peaks -->
+                  <path class="distant-peaks" d="M0 240 L35 190 L70 215 L120 160 L160 195 L220 135 L270 180 L330 115 L380 165 L420 130 L440 145 L440 280 L0 280 Z" />
+
+                  <!-- Main Cliffside Background Silhouette -->
+                  <path class="mountain-cliff-back" d="M0 280 L30 250 L60 255 L90 225 L120 230 L160 190 L200 195 L240 155 L280 160 L320 115 L360 85 L390 120 L440 240 L440 280 Z" />
+
+                  <!-- Main Mountain Cliff Wall (Rising from bottom-left to summit top-right) -->
+                  <path class="mountain-cliff-main" d="M-10 290 L35 265 L60 248 L85 230 L115 208 L140 190 L170 162 L200 142 L235 112 L275 88 L320 62 L350 56 L375 85 L405 150 L445 245 L450 290 Z" />
+
+                  <!-- Cliff Ridge & Fissure Lines -->
+                  <g class="cliff-ridge-lines">
+                    <path d="M350 56 L335 88 L310 125 L285 160 L255 205 L220 255 L200 290" />
+                    <path d="M275 88 L250 125 L215 170 L175 220 L135 285" />
+                    <path d="M200 142 L170 185 L130 235 L90 290" />
+                  </g>
+
+                  <!-- Rock Shading Hatches -->
+                  <g class="cliff-hatch">
+                    <path d="M338 95l12 -5"/>
+                    <path d="M318 128l12 -5"/>
+                    <path d="M296 160l14 -5"/>
+                    <path d="M268 200l14 -5"/>
+                    <path d="M236 242l15 -5"/>
+                  </g>
+
+                  <!-- Rock Holds along the Climbing Route -->
+                  <g class="rock-holds-group">
+                    <path d="M75 238l8 -3" />
+                    <path d="M105 218l9 -2" />
+                    <path d="M138 196l9 -3" />
+                    <path d="M172 172l9 -2" />
+                    <path class="hold-loose" d="M208 146l10 -3" /> <!-- The loose rock that slips! -->
+                    <path class="hold-emergency" d="M194 165l10 -2" /> <!-- Emergency ledge grabbed to save fall -->
+                    <path d="M242 120l9 -3" />
+                    <path d="M280 96l9 -2" />
+                    <path d="M318 72l8 -3" />
+                  </g>
+
+                  <!-- Summit Flag at Peak -->
+                  <g class="summit-group" transform="translate(350 56)">
+                    <line class="summit-flagpole" x1="0" y1="0" x2="0" y2="-24" />
+                    <path class="summit-flag" d="M0 -24 L18 -18 L0 -12 Z" />
+                  </g>
+
+                  <!-- Mountain Wind Gusts (Storm sweeps in at 4.5s - 5.0s, provoking the slip!) -->
+                  <g class="wind-storm-layer" aria-hidden="true">
+                    <path class="wind-gust wg-1" d="M -30 110 C 90 95, 210 135, 470 100" />
+                    <path class="wind-gust wg-2" d="M -50 135 C 70 120, 190 160, 470 125" />
+                    <path class="wind-gust wg-3" d="M -20 160 C 100 145, 220 185, 470 150" />
+                    <path class="wind-gust wg-4" d="M -40 185 C 80 170, 200 210, 470 175" />
+                    <circle class="wind-dust wd-1" cx="160" cy="130" r="1.5" />
+                    <circle class="wind-dust wd-2" cx="210" cy="145" r="1.2" />
+                    <circle class="wind-dust wd-3" cx="250" cy="120" r="1.6" />
+                  </g>
+
+                  <!-- Falling Rock Debris & Dust on Foot Slip -->
+                  <g class="pebble-debris" aria-hidden="true">
+                    <circle cx="210" cy="154" r="1.6" fill="var(--line-strong)" />
+                    <circle cx="214" cy="158" r="1.2" fill="var(--muted)" />
+                    <circle cx="206" cy="162" r="1.8" fill="var(--ink)" opacity="0.8" />
+                    <line x1="211" y1="150" x2="207" y2="168" stroke="var(--line-strong)" stroke-width="1.2" />
+                    <line x1="215" y1="152" x2="213" y2="172" stroke="var(--muted)" stroke-width="1.2" />
+                  </g>
+
+                  <!-- ==============================================
+                       THE CLIMBER: Articulated, expressive, physics-driven
+                       ============================================== -->
+                  <g class="climber-group" id="climber-group" transform="translate(20 0)">
+                    <!-- Dynamic lean driven by visitor cursor -->
+                    <g class="climber-lean" id="climber-lean">
+                      <!-- Active Climbing & Slipping Animator Cycle -->
+                      <g class="climber-animator">
+
+                        <!-- Mountaineer Backpack -->
+                        <rect x="178" y="152" width="7" height="12" rx="2" fill="var(--surface-alt)" stroke="var(--ink)" stroke-width="1.8" />
+
+                        <!-- Right Leg (braces, climbs, steps) -->
+                        <g class="climber-leg climber-leg-right">
+                          <path d="M192 168 Q200 178 196 189" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" />
+                          <path d="M196 189 l-4 3" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" />
+                        </g>
+
+                        <!-- Left Leg (SLIPS OFF LEDGE & SCRAMBLES WILDLY!) -->
+                        <g class="climber-leg climber-leg-left">
+                          <path d="M188 168 Q182 178 184 188" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" />
+                          <path d="M184 188 l-4 3" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" />
+                        </g>
+
+                        <!-- Torso / Spine -->
+                        <path d="M190 146 L190 168" fill="none" stroke="var(--ink)" stroke-width="3.4" stroke-linecap="round" />
+
+                        <!-- Left Arm (hangs onto rock ledge during the slip) -->
+                        <g class="climber-arm climber-arm-left">
+                          <path d="M188 150 Q194 140 192 128" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" />
+                        </g>
+
+                        <!-- Right Arm (reaches, flails frantically when slipping, then grabs hold!) -->
+                        <g class="climber-arm climber-arm-right">
+                          <path d="M192 150 Q185 155 186 166" fill="none" stroke="var(--ink)" stroke-width="3.2" stroke-linecap="round" />
+                        </g>
+
+                        <!-- Head & Neck Assembly: Tracks Cursor Gaze in Real Time -->
+                        <g class="climber-neck-head" id="climber-neck-head">
+                          <!-- Head Base -->
+                          <circle cx="190" cy="138" r="8" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.3" />
+                          <!-- Mountaineer Beanie -->
+                          <path d="M187 131 Q190 128 193 131" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" />
+
+                          <!-- Facial Features with 2D Pupil Following -->
+                          <g class="climber-pupils">
+                            <!-- 1. Determined Expression (Climbing with focus) -->
+                            <g class="face-state face-state-determined">
+                              <path d="M186 135l2 1" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                              <path d="M194 135l-2 1" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                              <circle cx="188" cy="138" r="1.1" fill="var(--ink)" />
+                              <circle cx="192" cy="138" r="1.1" fill="var(--ink)" />
+                              <path d="M188 142q2 .6 4 0" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                            </g>
+
+                            <!-- 2. Panic Expression (FOOT SLIPPED! ALMOST FALLING!) -->
+                            <g class="face-state face-state-panic">
+                              <path d="M185 133q2 -2 4 0" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                              <path d="M191 133q2 -2 4 0" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                              <circle cx="187.5" cy="138" r="2.1" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.1" />
+                              <circle cx="192.5" cy="138" r="2.1" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.1" />
+                              <circle cx="187.5" cy="138" r="0.75" fill="var(--ink)" />
+                              <circle cx="192.5" cy="138" r="0.75" fill="var(--ink)" />
+                              <ellipse cx="190" cy="142" rx="1.6" ry="2.2" fill="var(--ink)" />
+                              <!-- Sweat droplet of terror -->
+                              <path d="M182 131q2 3 0 4q-2 -1 0 -4" fill="var(--accent)" />
+                            </g>
+
+                            <!-- 3. Effort / Strain Expression -->
+                            <g class="face-state face-state-effort">
+                              <path d="M186 134l2 1.3" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" />
+                              <path d="M194 134l-2 1.3" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" />
+                              <path d="M187 138h2" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" />
+                              <path d="M191 138h2" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" />
+                              <path d="M188 142h4" stroke="var(--ink)" stroke-width="1.4" stroke-linecap="round" />
+                            </g>
+
+                            <!-- 4. Relief Expression (Caught hold! Safe!) -->
+                            <g class="face-state face-state-relief">
+                              <path d="M186 135q1.5 -1.2 3 0" fill="none" stroke="var(--ink)" stroke-width="1.2" stroke-linecap="round" />
+                              <path d="M191 135q1.5 -1.2 3 0" fill="none" stroke="var(--ink)" stroke-width="1.2" stroke-linecap="round" />
+                              <path d="M187 138q1.5 -1.5 3 0" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                              <path d="M191 138q1.5 -1.5 3 0" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                              <path d="M188 142q2 1.5 4 0" fill="none" stroke="var(--ink)" stroke-width="1.3" stroke-linecap="round" />
+                            </g>
+                          </g>
+                        </g>
+
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Little Context Strip (About Target) -->
+      <section class="intro-strip section-pad" id="about">
+        <p class="eyebrow">A LITTLE CONTEXT</p>
+        <p class="intro-copy">I'm an Electronics Engineering student at <span class="highlight">VJTI</span>, interested in the space where <span class="underline-scribble">hardware meets software.</span> Most of what I know comes from reading and building until it clicks.</p>
+        <div class="interest-tags"><span>embedded systems</span><span>firmware</span><span>RTOS &amp; microkernels</span><span>robotics</span></div>
+      </section>
+
+      <!-- Work / Projects Section -->
+      <section class="work-section section-pad" id="work">
+        <div class="section-heading">
+          <div><p class="eyebrow">THINGS I'VE BEEN BUILDING</p><h2>Projects<span class="heading-star">✳</span></h2></div>
+          <p class="section-note">Click a card for the full<br />write-up on each one.</p>
+        </div>
+
+        <div class="project-filters" role="group" aria-label="Filter projects by status">
+          <button class="project-filter" type="button" data-filter="all" aria-pressed="true" aria-controls="project-grid">All <span class="filter-count">2</span></button>
+          <button class="project-filter" type="button" data-filter="ongoing" aria-pressed="false" aria-controls="project-grid">Ongoing <span class="filter-count">2</span></button>
+          <button class="project-filter" type="button" data-filter="completed" aria-pressed="false" aria-controls="project-grid">Completed <span class="filter-count">0</span></button>
+        </div>
+        <p class="sr-only" id="project-filter-status" role="status" aria-live="polite"></p>
+
+        <div class="project-grid" id="project-grid">
+          <!-- 01 AstraRTOS (Ongoing) -->
+          <a class="project-card" href="projects/astraritos.html" data-status="ongoing">
+            <div class="project-topline"><span>01</span><span>ARM · C</span></div>
+            <div class="project-meta"><div><span class="project-type">RTOS · TEAM PROJECT</span><h3>AstraRTOS</h3></div><div class="project-meta-side"><span class="project-status is-ongoing">Ongoing</span><span class="project-number">01</span></div></div>
+            <p>Contributing to a bare-metal RTOS for ARM Cortex-M4, exploring scheduling, synchronization primitives, timers, and low-level drivers.</p>
+            <div class="project-tags"><span>C</span><span>ARM Cortex-M</span><span>STM32</span><span>RTOS</span></div>
+            <span class="project-open">view <span>↗</span></span>
+          </a>
+
+          <!-- 02 Microkernel (Ongoing) -->
+          <a class="project-card" href="projects/microkernel.html" data-status="ongoing">
+            <div class="project-topline"><span>02</span><span>C · SYSTEMS</span></div>
+            <div class="project-meta"><div><span class="project-type">OS DEVELOPMENT · IN PROGRESS</span><h3>Microkernel</h3></div><div class="project-meta-side"><span class="project-status is-ongoing">Ongoing</span><span class="project-number">02</span></div></div>
+            <p>Designing and building a lightweight microkernel from scratch — minimal privileged execution, synchronous IPC messaging, capability-based security, and user-space memory isolation.</p>
+            <div class="project-tags"><span>C</span><span>Kernel Dev</span><span>IPC</span><span>Virtual Memory</span><span>Microkernel</span></div>
+            <span class="project-open">view <span>↗</span></span>
+          </a>
+        </div>
+        <p class="work-footnote"><span>↳</span> Active builds in kernel land and low-level systems. I'll keep adding the messy middle, not just the finished demos.</p>
+      </section>
+
+      <!-- Contact Section -->
+      <section class="contact-section section-pad" id="contact">
+        <p class="eyebrow">GOT A COOL PROBLEM?</p>
+        <h2>Let's build<br /><span>something real.</span></h2>
+        <p class="contact-copy">Open to learning from people, collaborating on embedded projects, and talking systems, firmware, or robotics.</p>
+        <a class="contact-button" href="mailto:sohshri796@gmail.com">Drop me a line <span>↗</span></a>
+        <div class="social-links"><a href="https://github.com/sohshri796-cell" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/soham-aney-1740173a4?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:sohshri796@gmail.com">Email ↗</a></div>
+      </section>
+    </main>
+
+    <footer class="footer"><a class="wordmark" href="#top">Soham<span class="wordmark-dot">.</span></a><p>Learning is going on.</p><a href="#top" class="back-top">back to top ↑</a><span class="footer-year">© <span id="year">2026</span></span></footer>
+  </div>
+  <div class="floating-note" id="floating-note" role="status" aria-live="polite"><span class="note-spark">✳</span><span id="note-text">Psst. The details matter.</span><button id="note-close" aria-label="Dismiss note">×</button></div>
+  <script src="script.js"></script>
+</body>
+</html>
